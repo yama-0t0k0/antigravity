@@ -8,11 +8,15 @@
     :root {
         --bg-color: #0d1117;
         --text-color: #ffffff;
-        --accent-blue: #4285F4; /* Google Blueish */
-        --accent-red: #EA4335;  /* Google Reddish */
-        --accent-yellow: #FBBC05; /* Google Yellowish */
-        --accent-green: #34A853; /* Google Greenish */
+        --accent-blue: #4285F4;
+        --accent-red: #EA4335;
+        --accent-yellow: #FBBC05;
+        --accent-green: #34A853;
         --glass: rgba(255, 255, 255, 0.1);
+    }
+
+    html {
+        scroll-behavior: smooth; /* スムーズスクロールを有効化 */
     }
 
     body {
@@ -59,16 +63,29 @@
         margin-top: 10px;
     }
 
+    /* Scroll Down Link */
+    .scroll-down-btn {
+        margin-top: 50px;
+        font-size: 0.9rem;
+        opacity: 0.8;
+        color: var(--text-color);
+        text-decoration: none;
+        transition: opacity 0.3s, transform 0.3s;
+        display: inline-block;
+        cursor: pointer;
+        padding: 10px;
+    }
+    
+    .scroll-down-btn:hover {
+        opacity: 1;
+        transform: translateY(5px);
+        text-shadow: 0 0 10px rgba(255,255,255,0.5);
+    }
+
     /* Floating Animations */
     @keyframes float {
         0% { transform: translateY(0px) rotate(0deg); }
         50% { transform: translateY(-20px) rotate(2deg); }
-        100% { transform: translateY(0px) rotate(0deg); }
-    }
-
-    @keyframes float-reverse {
-        0% { transform: translateY(0px) rotate(0deg); }
-        50% { transform: translateY(15px) rotate(-2deg); }
         100% { transform: translateY(0px) rotate(0deg); }
     }
 
@@ -91,7 +108,7 @@
         margin-bottom: 30px;
     }
 
-    /* 1. The Gravity Problem (Falling Blocks) */
+    /* 1. The Gravity Problem */
     .problem-grid {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -108,7 +125,7 @@
     }
 
     .heavy-block:hover {
-        transform: translateY(5px); /* Feels heavy */
+        transform: translateY(5px);
     }
 
     .heavy-icon {
@@ -117,7 +134,7 @@
         display: block;
     }
 
-    /* 2. The Antigravity Solution (Floating Bubbles) */
+    /* 2. The Antigravity Solution */
     .solution-area {
         position: relative;
         height: 400px;
@@ -146,19 +163,7 @@
     .bubble.com { background: linear-gradient(135deg, var(--accent-green), #1b5e20); animation-delay: 1s; }
     .bubble.ai { background: linear-gradient(135deg, var(--accent-yellow), #f57f17); color: #000; animation-delay: 2s; width: 120px; height: 120px; }
 
-    .connection-line {
-        position: absolute;
-        height: 2px;
-        background: white;
-        width: 100px;
-        opacity: 0.5;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%) rotate(45deg);
-        z-index: -1;
-    }
-
-    /* 3. The Mechanism (UI Mockup) */
+    /* 3. The Mechanism */
     .app-mockup {
         background: #fff;
         color: #333;
@@ -191,7 +196,7 @@
     }
     .comparison-table th { color: var(--accent-yellow); }
     
-    /* Call to Action */
+    /* CTA */
     .cta-btn {
         display: inline-block;
         padding: 15px 40px;
@@ -209,7 +214,6 @@
         box-shadow: 0 10px 20px rgba(52, 168, 83, 0.4);
     }
 
-    /* Responsive */
     @media (max-width: 600px) {
         h1 { font-size: 2.5rem; }
         .solution-area { height: auto; flex-direction: column; gap: 20px; }
@@ -224,10 +228,13 @@
         <div style="font-size: 5rem;">🪐</div>
         <h1>Google Antigravity<br>Strategy</h1>
         <p class="subtitle">IT人材マッチングにおける「重力（しがらみ）」からの解放</p>
-        <div style="margin-top: 30px; font-size: 0.9rem; opacity: 0.8;">SCROLL DOWN ▼</div>
+        
+        <a href="#gravity-section" class="scroll-down-btn">
+            SCROLL DOWN ▼
+        </a>
     </header>
 
-    <section>
+    <section id="gravity-section">
         <h2 style="border-color: var(--accent-red);">1. The Heavy Gravity (現状の課題)</h2>
         <p>従来のIT業界は、多重下請け構造や高額な仲介手数料という「強い重力」に縛られています。</p>
         
